@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator Application</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+      #calculator {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      button {
+        font-size: 1.5rem;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      button:hover {
+        background-color: #e6e6e6;
+      }
+      .red {
+        background-color: #ff6666;
+        color: #fff;
+      }
+      .light-gray {
+        background-color: #d9d9d9;
+      }
+      .dark-gray {
+        background-color: #bfbfbf;
+      }
+      .blue {
+        background-color: #4d79ff;
+        color: #fff;
+      }
+      #display {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+      #answer {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+      #expression {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calculator Application</h1>
+      <div id="calculator">
+        <div id="display"></div>
+        <button id="clear" onClick={() => buttonPress("clear")} class="red">AC</button>
+        <button id="divide" onClick={() => buttonPress("/")} class="light-gray">/</button>
+        <button id="multiply" onClick={() => buttonPress("*")} class="light-gray">x</button>
+        <button id="seven" onClick={() => buttonPress("7")} class="dark-gray">7</button>
+        <button id="eight" onClick={() => buttonPress("8")} class="dark-gray">8</button>
+        <button id="nine" onClick={() => buttonPress("9")} class="dark-gray">9</button>
+        <button id="subtract" onClick={() => buttonPress("-")} class="light-gray">-</button>
+        <button id="four" onClick={() => buttonPress("4")} class="dark-gray">4</button>
+        <button id="five" onClick={() => buttonPress("5")} class="dark-gray">5</button>
+        <button id="six" onClick={() => buttonPress("6")} class="dark-gray">6</button>
+        <button id="add" onClick={() => buttonPress("+")} class="light-gray">+</button>
+        <button id="one" onClick={() => buttonPress("1")} class="dark-gray">1</button>
+        <button id="two" onClick={() => buttonPress("2")} class="dark-gray">2</button>
+        <button id="three" onClick={() => buttonPress("3")} class="dark-gray">3</button>
+        <button id="zero" onClick={() => buttonPress("0")} class="dark-gray">0</button>
+        <button id="decimal" onClick={() => buttonPress(".")} class="dark-gray">.</button>
+        <button id="equals" onClick={() => buttonPress("=")} class="blue">=</button>
+      </div>
+      <div id="answer"></div>
+      <div id="expression"></div>
+    </div>
+    <script>
+      let expression = "";
+      let answer = "";
+      let display = document.getElementById("display");
+      let answerDisplay = document.getElementById("answer");
+      let expressionDisplay = document.getElementById("expression");
+
+      function buttonPress(button) {
+        if (button === "clear") {
+          expression = "";
+          answer = "";
+          display.textContent = "";
+          answerDisplay.textContent = "";
+          expressionDisplay.textContent = "";
+        } else if (button === "=") {
+          try {
+            answer = eval(expression);
+            answerDisplay.textContent = answer;
+            expressionDisplay.textContent = expression + " =";
+            expression = answer;
+            display.textContent = answer;
+          } catch (error) {
+            answerDisplay.textContent = "Error";
+            expression

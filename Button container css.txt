@@ -1,0 +1,72 @@
+
+#expression {
+  font-size: 20px;
+  height: 30px;
+  color: var(--dark-gray);
+  text-align: right;
+}
+
+#clear {
+  grid-area: clear;
+
+}
+
+#divide {
+  grid-area: divide;
+}
+#multiply {
+  grid-area: multiply;
+}
+
+#seven {
+  grid-area: seven;
+}
+
+#eight {
+  grid-area: eight;
+}
+
+#nine {
+  grid-area: nine;
+}
+
+#subtract {
+  grid-area: subtract;
+}
+
+#four {
+  grid-area: four;
+}
+
+#five {
+  grid-area: five;
+}
+
+#six {
+  grid-area: six;
+}
+
+#add {
+  grid-area: add;
+}
+
+#one {
+  grid-area: one;
+}
+
+#two {
+  grid-area: two;
+}
+
+#three {
+  grid-area: three;
+}
+#zero {
+grid-area: zero;
+}
+#decimal {
+grid-area: decimal;
+}
+#equals {
+grid-area: equals
+}
